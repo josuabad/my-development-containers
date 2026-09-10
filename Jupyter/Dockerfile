@@ -10,7 +10,7 @@ RUN apt-get update
 WORKDIR /workspace
 
 # Instalar JupyterLab, PySpark y librerías
-RUN pip install --no-cache-dir jupyterlab scikit-learn numpy pandas matplotlib seaborn
+RUN pip install --no-cache-dir jupyterlab scikit-learn scipy numpy pandas matplotlib seaborn
 
 EXPOSE 8888
 
