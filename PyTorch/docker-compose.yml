@@ -1,0 +1,20 @@
+services:
+  pytorch-app:
+    image: my_pytorch_image:latest
+    # container_name: pytorch_env
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - pip_cache:/root/.cache/pip
+    environment:
+      - PIP_CACHE_DIR=/root/.cache/pip
+    command: ["tail", "-f", "/dev/null"]
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "6.0"
+    #       memory: 12G
+
+volumes:
+  pip_cache:
+    driver: local
