@@ -3,10 +3,10 @@ services:
     # Choose between using an image or building from a Dockerfile.
     # Uncomment the line below to use a pre-built image,
     # or comment it out to build from the Dockerfile.
-    # image: my_jupyterlab_image:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: my_jupyterlab_image:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     # Borra o comenta la línea container_name:
     # container_name: jupyter_dev_container
     user: root
@@ -14,7 +14,7 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - jupyter_data:/workspace
+      - jupyterlab_data:/workspace
       - .:/workspace
     working_dir: /workspace
     environment:
@@ -26,5 +26,5 @@ services:
     #       memory: 12G
 
 volumes:
-  jupyter_data:
+  jupyterlab_data:
     driver: local
